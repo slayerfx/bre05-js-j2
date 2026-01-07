@@ -36,12 +36,12 @@ function askUserOperation() {
 
 function askUserFirstNumber() {
   const firstNumber = prompt("Entrez le premier nombre");
-  return firstNumber;
+  return Number(firstNumber);
 }
 
 function askUserSecondNumber() {
   const secondNumber = prompt("Entrez le second nombre");
-  return secondNumber;
+  return Number(secondNumber);
 }
 
 // Exercice 3
@@ -67,4 +67,6 @@ function calculator() {
   }
 }
 
-console.log(calculator());
+const resultat = calculator();
+
+alert("Le résultat est : " + resultat);
