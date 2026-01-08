@@ -230,7 +230,7 @@ function getBrownEyedUsers(users) {
 }
 
 function excludeCenturiaWorkers(users) {
-  return user.filter((user) => user.company !== "CENTURIA");
+  return users.filter((user) => user.company !== "CENTURIA");
 }
 
 console.log(
@@ -241,10 +241,43 @@ console.log(
 
 // étape 6
 
+function getActiveUsers(users) {
+  return users.filter((user) => user.isActive);
+}
 
+function getInactiveUsers(users) {
+  return users.filter((user) => !user.isActive);
+}
 
-console.log(`Out of our brown eyed users ${} are active and ${} are inactive`);
+function getBrownEyedUsers(users) {
+  return users.filter((user) => user.eyeColor === "brown");
+}
 
-console.log(`Out of our green eyed users ${} are active and ${} are inactive`);
+function getGreenEyedUsers(users) {
+  return users.filter((user) => user.eyeColor === "green");
+}
 
-console.log(`Out of our blue eyed users ${} are active and ${} are inactive`);
+function getBlueEyedUsers(users) {
+  return users.filter((user) => user.eyeColor === "blue");
+}
+
+const brownUsers = getBrownEyedUsers(users);
+console.log(
+  `Out of our brown eyed users ${
+    getActiveUsers(brownUsers).length
+  } are active and ${getInactiveUsers(brownUsers).length} are inactive`
+);
+
+const greenUsers = getGreenEyedUsers(users);
+console.log(
+  `Out of our green eyed users ${
+    getActiveUsers(greenUsers).length
+  } are active and ${getInactiveUsers(greenUsers).length} are inactive`
+);
+
+const blueUsers = getBlueEyedUsers(users);
+console.log(
+  `Out of our blue eyed users ${
+    getActiveUsers(blueUsers).length
+  } are active and ${getInactiveUsers(blueUsers).length} are inactive`
+);
